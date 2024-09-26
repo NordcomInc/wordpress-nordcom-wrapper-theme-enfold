@@ -9,7 +9,8 @@ if (!defined('ABSPATH')) {
 
 /** https://developer.wordpress.org/reference/hooks/after_setup_theme/ */
 function nordcom_action_setup() {
-    // TODO.
+    // We can't override the function in the parent theme, so let's unregister it instead.
+    remove_action('init', 'portfolio_register');
 }
 
 /** Use parent theme stylesheet */
@@ -55,7 +56,7 @@ function nordcom_filter_modify_back_link() {
 add_filter('rest_authentication_errors', 'nordcom_filter_no_unauthenticated_rest_api_access');
 add_filter('kriesi_backlink', 'nordcom_filter_modify_back_link', -1);
 add_filter('xmlrpc_enabled', '__return_false');
-add_filter( 'show_admin_bar', '__return_false' );
+add_filter('show_admin_bar', '__return_false');
 
 // -----------------------------------------------------------------------------
 // shortcodes
