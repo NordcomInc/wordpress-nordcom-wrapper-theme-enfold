@@ -1,0 +1,64 @@
+/*
+    Theme Name: Nordcom Wrapper Theme for Enfold
+    Description: A wrapper/child theme to fix issues and oddities in the Enfold theme.
+    Author: Nordcom AB
+    Author URI: https://nordcom.io/
+    Template: enfold
+    Tags: child-theme, blocks, enfold, nordcom, wrapper
+    Version: 0.1
+*/
+
+#top #main .flex_column_table {
+    --margin-top-bottom: 13px;
+    overflow: hidden;
+    margin: var(--margin-top-bottom, 13px) 0;
+
+    &.av-equal-height-column-flextable {
+        height: 100%;
+
+        & .flex_column {
+            --iconbox-icon-size: 40px;
+            height: 100%;
+            margin-bottom: 0;
+
+            & > *,
+            & > .iconbox > .iconbox_content {
+                height: 100%;
+            }
+
+            & > .iconbox.iconbox_top {
+                margin-top: calc(var(--iconbox-icon-size, 40px) / 2);
+            }
+            &:has(.iconbox_top) > .iconbox > .iconbox_content {
+                height: calc(100% - var(--iconbox-icon-size, 40px) / 2);
+            }
+
+            &:first-of-type {
+                margin-left: 0;
+                padding-left: 0 !important;
+            }
+            &:last-of-type {
+                margin-right: 0;
+                padding-right: 0 !important;
+            }
+        }
+    }
+
+    & .flex_column.av_one_third {
+        width: calc(100% / 3);
+
+        @media only screen and (max-width: 767px) {
+            & {
+                width: 100%;
+            }
+        }
+    }
+
+    & .av-flex-placeholder {
+        display: none;
+    }
+}
+
+.iconbox_top .iconbox_content {
+    border-radius: 13px;
+}
