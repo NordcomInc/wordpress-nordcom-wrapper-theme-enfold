@@ -50,10 +50,10 @@ function nordcom_filter_no_unauthenticated_rest_api_access($result) {
 
 /** Modify kriesi's cheeky back-link */
 function nordcom_filter_modify_back_link() {
-    return ". <a href=\"https://nordcom.io/?utm_campaign=footer&utm_source=" . urlencode(get_bloginfo('name')) . "\">In Collaboration with Nordcom AB</a>.";
+    return ""; //". <a href=\"https://nordcom.io/?utm_campaign=footer&utm_source=" . urlencode(get_bloginfo('name')) . "\">In Collaboration with Nordcom AB</a>.";
 }
 
-add_filter('rest_authentication_errors', 'nordcom_filter_no_unauthenticated_rest_api_access');
+// add_filter('rest_authentication_errors', 'nordcom_filter_no_unauthenticated_rest_api_access');
 add_filter('kriesi_backlink', 'nordcom_filter_modify_back_link', -1);
 add_filter('xmlrpc_enabled', '__return_false');
 add_filter('show_admin_bar', '__return_false');
